@@ -7,7 +7,7 @@
 #import "iccChoicesSelectViewController.h"
 #import "CardIO.h"
 #import "CardIOCGGeometry.h"
-#import "TestGeneratedModels.h"
+//#import "TestGeneratedModels.h"
 
 #if CARDIO_DEBUG
 #import "CardIOLocalizer.h"
@@ -402,13 +402,13 @@
 #pragma mark - CardIOPaymentViewControllerDelegate methods
 
 - (void)userDidCancelPaymentViewController:(CardIOPaymentViewController *)paymentViewController {
-  CardIOLog(@"Received userDidCancelPaymentViewController:");
+  // CardIOLog(@"Received userDidCancelPaymentViewController:");
   [self setOutcomeText:@"Cancelled" image:nil];
   [paymentViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)userDidProvideCreditCardInfo:(CardIOCreditCardInfo *)info inPaymentViewController:(CardIOPaymentViewController *)paymentViewController {
-  CardIOLog(@"Received userDidProvideCreditCardInfo:inPaymentViewController:");
+  // CardIOLog(@"Received userDidProvideCreditCardInfo:inPaymentViewController:");
   NSMutableString *resultStr = [NSMutableString stringWithCapacity:100];
 
   [resultStr appendFormat:@"Number (%@): %@\n", info.scanned ? @"scanned" : @"manual", [info redactedCardNumber]];
@@ -444,7 +444,7 @@
 #pragma mark CardIOViewDelegate method
 
 - (void)cardIOView:(CardIOView *)cardIOView didScanCard:(CardIOCreditCardInfo *)cardInfo {
-  CardIOLog(@"Received cardIOView:didScanCard:");
+  // CardIOLog(@"Received cardIOView:didScanCard:");
   if (cardInfo) {
     NSMutableString *resultStr = [NSMutableString stringWithCapacity:100];
     [resultStr appendFormat:@"Number (%@): %@\n", @"scanned", [cardInfo redactedCardNumber]];

@@ -384,7 +384,7 @@
 		036DD65F12663A6300EB719A /* CardIOVideoFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CardIOVideoFrame.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		036DD66012663A6300EB719A /* CardIOVideoFrame.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = CardIOVideoFrame.mm; sourceTree = "<group>"; };
 		036DD69C126654ED00EB719A /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = Classes/RootViewController.h; sourceTree = "<group>"; };
-		036DD69D126654ED00EB719A /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = RootViewController.m; path = Classes/RootViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		036DD69D126654ED00EB719A /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = RootViewController.m; path = Classes/RootViewController.m; sourceTree = "<group>"; };
 		036DD69E126654ED00EB719A /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RootViewController.xib; path = Classes/RootViewController.xib; sourceTree = "<group>"; };
 		036DD6C31266574A00EB719A /* green_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green_button@2x.png"; sourceTree = "<group>"; };
 		036DD6C41266574A00EB719A /* green_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_button.png; sourceTree = "<group>"; };
@@ -739,7 +739,6 @@
 		3EA7E534170F8F8600BAE3F3 /* CardIOLocalizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardIOLocalizer.h; path = Classes/CardIOLocalizer.h; sourceTree = "<group>"; };
 		3EA7E535170F8F8600BAE3F3 /* CardIOLocalizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardIOLocalizer.m; path = Classes/CardIOLocalizer.m; sourceTree = "<group>"; };
 		3EB636AA1846C6A900F0527B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		3ECC052A1952437F00092A30 /* CardIO.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = CardIO.podspec; path = Release/CardIO.podspec; sourceTree = "<group>"; };
 		3ECDD2861885FAA000361A0F /* NSObject+CardioCategoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+CardioCategoryTest.h"; path = "Classes/NSObject+CardioCategoryTest.h"; sourceTree = "<group>"; };
 		3ECDD2871885FAA000361A0F /* NSObject+CardioCategoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CardioCategoryTest.m"; path = "Classes/NSObject+CardioCategoryTest.m"; sourceTree = "<group>"; };
 		3ED00DA11BD8D60900FD2DB4 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "Classes/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
@@ -796,6 +795,7 @@
 		92122C421B8C39D0004D705E /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		92263D701B83ACBB003FE678 /* CardIO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CardIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92263E311B84283D003FE678 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A1D9F950264520E100609A9A /* CardIO.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = CardIO.podspec; sourceTree = "<group>"; };
 		A50A54AD1BE2F7A800B669FB /* AdHoc.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = AdHoc.xcconfig; path = build_configs/AdHoc.xcconfig; sourceTree = "<group>"; };
 		A50A54AE1BE2F7A800B669FB /* CardIO_Static_Library_AdHoc.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = CardIO_Static_Library_AdHoc.xcconfig; path = build_configs/CardIO_Static_Library_AdHoc.xcconfig; sourceTree = "<group>"; };
 		A50A54AF1BE2F7A800B669FB /* CardIO_Static_Library_Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = CardIO_Static_Library_Debug.xcconfig; path = build_configs/CardIO_Static_Library_Debug.xcconfig; sourceTree = "<group>"; };
@@ -841,7 +841,7 @@
 		D1800C7013CE6D0C0004444E /* CardIOMultipleFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardIOMultipleFieldTableViewCell.m; sourceTree = "<group>"; };
 		D1824381144CF73400829B91 /* CardIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardIO.h; path = CardIO_Public_API/CardIO.h; sourceTree = "<group>"; };
 		D1824386144CF73400829B91 /* CardIOCreditCardInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CardIOCreditCardInfo.h; path = CardIO_Public_API/CardIOCreditCardInfo.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		D1824387144CF73400829B91 /* CardIOPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CardIOPaymentViewController.h; path = CardIO_Public_API/CardIOPaymentViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		D1824387144CF73400829B91 /* CardIOPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CardIOPaymentViewController.h; path = CardIO_Public_API/CardIOPaymentViewController.h; sourceTree = "<group>"; };
 		D1824388144CF73400829B91 /* CardIOPaymentViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardIOPaymentViewControllerDelegate.h; path = CardIO_Public_API/CardIOPaymentViewControllerDelegate.h; sourceTree = "<group>"; };
 		D1AF634813CCB3C300330C76 /* CardIOCreditCardInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CardIOCreditCardInfo.m; path = Classes/CardIOCreditCardInfo.m; sourceTree = "<group>"; };
 		D1EA4590156B1A560091C829 /* image_util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = image_util.cpp; sourceTree = "<group>"; };
@@ -1036,7 +1036,7 @@
 				3E6DB8B518513EFC00C5853E /* LICENSE.md */,
 				3E6DB8B618513EFC00C5853E /* README.md */,
 				3E6DB8B718513EFC00C5853E /* release_notes.txt */,
-				3ECC052A1952437F00092A30 /* CardIO.podspec */,
+				A1D9F950264520E100609A9A /* CardIO.podspec */,
 			);
 			name = "Public API";
 			sourceTree = "<group>";

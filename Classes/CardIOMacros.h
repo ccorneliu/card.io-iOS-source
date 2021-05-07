@@ -5,11 +5,11 @@
 
 // CardIOLog is a replacement for NSLog that logs iff CARDIO_DEBUG is set.
 
-#if CARDIO_DEBUG
+//#if CARDIO_DEBUG
 #define CardIOLog(format, args...) NSLog(format, ## args)
-#else
-#define CardIOLog(format, args...)
-#endif
+//#else
+//#define CardIOLog(format, args...)
+//#endif
 
 @interface CardIOMacros : NSObject
 

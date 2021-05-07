@@ -145,7 +145,7 @@
   // (Reverse that for right-to-left languages.)
   
 #ifdef DEBUG_LAYOUT_WITH_COLORS
-  CardIOLog(@"contentView(%@) layoutSubviews",self);
+  // CardIOLog(@"contentView(%@) layoutSubviews",self);
   self.backgroundColor = [UIColor redColor];
 #endif
   

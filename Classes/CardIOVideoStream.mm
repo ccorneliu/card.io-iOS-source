@@ -323,7 +323,7 @@
   }
 #if CARDIO_DEBUG
   else {
-    CardIOLog(errorMessage, lockError);
+    // CardIOLog(errorMessage, lockError);
   }
 #endif
   
@@ -383,7 +383,7 @@
 }
 
 - (void)refocus {
-  CardIOLog(@"Manual refocusing");
+  // CardIOLog(@"Manual refocusing");
   [self autofocusOnce];
   [self performSelector:@selector(resumeContinuousAutofocusing) withObject:nil afterDelay:0.1f];
 }
@@ -433,7 +433,7 @@
   NSError *sessionError = nil;
   _cameraInput = [AVCaptureDeviceInput deviceInputWithDevice:self.camera error:&sessionError];
   if(sessionError || !self.cameraInput) {
-    CardIOLog(@"CardIO camera input error: %@", sessionError);
+    // CardIOLog(@"CardIO camera input error: %@", sessionError);
     return NO;
   }
   
@@ -540,7 +540,7 @@
     [self.delegate videoStream:self didProcessFrame:frame];
   }
   else {
-    CardIOLog(@"STRAY FRAME!!! wasted processing. we are sad.");
+    // CardIOLog(@"STRAY FRAME!!! wasted processing. we are sad.");
   }
 }
 
@@ -597,7 +597,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
       if(self.numFrames % 20 == 0) {
         NSTimeInterval elapsed = [[NSDate date] timeIntervalSinceDate:self.start];
         fps = self.numFrames / elapsed;
-        CardIOLog(@"Elapsed: %0.1f. Frames: %lu. FPS: %0.2f", elapsed, (unsigned long)self.numFrames, fps);
+        // CardIOLog(@"Elapsed: %0.1f. Frames: %lu. FPS: %0.2f", elapsed, (unsigned long)self.numFrames, fps);
         self.numFrames = 0;
         self.start = [NSDate date];
       }
@@ -669,7 +669,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
         if (now - self.lastAutoFocusOnceTime > kMinTimeIntervalForAutoFocusOnce) {
           self.lastAutoFocusOnceTime = now;
-          CardIOLog(@"Auto-triggered focusing");
+          // CardIOLog(@"Auto-triggered focusing");
           [self autofocusOnce];
           [self performSelector:@selector(resumeContinuousAutofocusing) withObject:nil afterDelay:0.1f];
           didAutoFocus = YES;
@@ -710,7 +710,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         if (changeTorchState) {
           if (changeTorchStateToOFF == self.lastChangeTorchStateToOFF) {
             if (now - self.lastChangeSignal > 1) {
-              CardIOLog(@"Automatic torch change");
+              // CardIOLog(@"Automatic torch change");
               if (changeTorchStateToOFF) {
                 [self setTorchOn:NO];
               }

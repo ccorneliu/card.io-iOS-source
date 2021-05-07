@@ -231,7 +231,7 @@
 
 
 - (void)toggleTorch:(UIButton *)theButton {
-  CardIOLog(@"Manual torch change");
+  // CardIOLog(@"Manual torch change");
   BOOL torchWasOn = [self.videoStream torchIsOn];
   BOOL success = [self.videoStream setTorchOn:!torchWasOn];
   if (success) {

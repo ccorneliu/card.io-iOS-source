@@ -42,7 +42,7 @@
 
 + (BOOL)is3GS {
   NSString *platformName = [self platformName];
-  CardIOLog(@"Platform name is %@", platformName);
+  // CardIOLog(@"Platform name is %@", platformName);
   BOOL is3GS = [platformName hasPrefix:@"iPhone2"]; // should this be @"iPhone2,", so we don't pickup the 20th gen iPhone? :)
   return is3GS;
 }

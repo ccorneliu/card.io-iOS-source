@@ -150,7 +150,7 @@ NSString * const CardIOScanningOrientationAnimationDuration = @"CardIOScanningOr
     
     self.scanHasBeenStarted = YES;
     
-    CardIOLog(@"Creating cameraView");
+    // CardIOLog(@"Creating cameraView");
     self.cameraView = [[CardIOCameraView alloc] initWithFrame:CGRectZeroWithSize(self.frame.size)
                                                      delegate:self
                                                        config:self.config];
@@ -185,7 +185,7 @@ NSString * const CardIOScanningOrientationAnimationDuration = @"CardIOScanningOr
 
 - (void)startSession {
   if (self.cameraView) {
-    CardIOLog(@"Starting CameraViewController session");
+    // CardIOLog(@"Starting CameraViewController session");
     
     [self.cameraView startVideoStreamSession];
     
@@ -195,7 +195,7 @@ NSString * const CardIOScanningOrientationAnimationDuration = @"CardIOScanningOr
 
 - (void)stopSession {
   if (self.cameraView) {
-    CardIOLog(@"Stopping CameraViewController session");
+    // CardIOLog(@"Stopping CameraViewController session");
     [self.cameraView stopVideoStreamSession];
   }
 }

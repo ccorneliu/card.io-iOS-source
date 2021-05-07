@@ -57,7 +57,7 @@ NSString *const kCardIOPassthroughFragmentShader = SHADER_STRING
 - (void)setPerspectiveMat:(float *)matrix {
   [_gpuRenderer withContextDo:^{
     [_gpuRenderer prepareForUse];
-    //  CardIOLog(@"GL perspective matrix: \n%@", [[self class] matrixAsString:matrix size:4 rowMajor:NO]);
+    //  // CardIOLog(@"GL perspective matrix: \n%@", [[self class] matrixAsString:matrix size:4 rowMajor:NO]);
     glUniformMatrix4fv(_transformMatrixUniform, 1, GL_FALSE, matrix);
   }];
 }

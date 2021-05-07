@@ -255,7 +255,7 @@
       break;
     }
     default: {
-      CardIOLog(@"CardIOVideoFrame encodeWithEncoding called with unrecognized encoding %i", encoding);
+      // CardIOLog(@"CardIOVideoFrame encodeWithEncoding called with unrecognized encoding %i", encoding);
       break;
     }
   }
@@ -275,7 +275,7 @@
       imageFilename = [NSString stringWithFormat:@"png_gray_cc_%f.png", timestamp];
       break;
     default:
-      CardIOLog(@"CardIOVideoFrame filenameForImageEncodedUsingEncoding called with unrecognized encoding %i", encoding);
+      // CardIOLog(@"CardIOVideoFrame filenameForImageEncodedUsingEncoding called with unrecognized encoding %i", encoding);
       break;
   }
   

@@ -5,7 +5,7 @@
 
 #import "CardIOGPURenderer.h"
 #import "CardIOMacros.h"
-#import "dmz.h"
+//#import "dmz.h"
 #import <OpenGLES/ES2/glext.h>
 #import <OpenGLES/ES3/gl.h>
 
@@ -75,7 +75,7 @@ const GLubyte Indices[] = {
   }
   
   if (!_context) {
-    CardIOLog(@"Failed to initialize OpenGLES 2.0 context");
+    // CardIOLog(@"Failed to initialize OpenGLES 2.0 context");
   }
   else {
     BOOL contextSet = NO;
@@ -92,9 +92,9 @@ const GLubyte Indices[] = {
         contextSet = YES;
       }
       else {
-        CardIOLog(@"Failed to set current OpenGL context");
+        // CardIOLog(@"Failed to set current OpenGL context");
         if (![EAGLContext setCurrentContext:formerContext]) {
-          CardIOLog(@"Failed to reset former OpenGL context");
+          // CardIOLog(@"Failed to reset former OpenGL context");
         }
       }
     }
@@ -104,7 +104,7 @@ const GLubyte Indices[] = {
         successBlock();
         glFlush();
         if (![EAGLContext setCurrentContext:formerContext]) {
-          CardIOLog(@"Failed to reset former OpenGL context");
+          // CardIOLog(@"Failed to reset former OpenGL context");
         }
       }
     }
@@ -325,7 +325,7 @@ const GLubyte Indices[] = {
 #if CARDIO_DEBUG
     GLuint error = glGetError();
     if (error != GL_NO_ERROR) {
-      CardIOLog(@"glTexImage2D error: %u", error);
+      // CardIOLog(@"glTexImage2D error: %u", error);
     }
 #endif
   }];
@@ -353,7 +353,7 @@ const GLubyte Indices[] = {
     glReadPixels(0, 0, dstImg->width, dstImg->height, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
     GLuint error = glGetError();
     if (error) {
-      CardIOLog(@"glReadPixels Error: %u", error);
+      // CardIOLog(@"glReadPixels Error: %u", error);
     }
   }];
   
@@ -386,20 +386,20 @@ const GLubyte Indices[] = {
   // Check the status of the compile/link
   glGetShaderiv(*shader, GL_COMPILE_STATUS, &success);
   if (success != GL_TRUE) {
-    CardIOLog(@"Shader compile failed");
+    // CardIOLog(@"Shader compile failed");
     glGetShaderiv(*shader, GL_INFO_LOG_LENGTH, &logLen);
     if (logLen > 0)
     {
       // Show any errors as appropriate
       GLchar *log = (GLchar *)malloc(logLen);
       glGetShaderInfoLog(*shader, logLen, &logLen, log);
-      CardIOLog(@"Shader compile log:\n%s", log);
+      // CardIOLog(@"Shader compile log:\n%s", log);
       free(log);
     }
     return NO;
   }
   else {
-    CardIOLog(@"Shader compile OK");
+    // CardIOLog(@"Shader compile OK");
     return YES;
   }
 }
@@ -419,19 +419,19 @@ const GLubyte Indices[] = {
   // Check the status of the compile/link
   glGetProgramiv(*program, GL_LINK_STATUS, &success);
   if (success != GL_TRUE) {
-    CardIOLog(@"Program link failed");
+    // CardIOLog(@"Program link failed");
     glGetProgramiv(*program, GL_INFO_LOG_LENGTH, &logLen);
     if (logLen > 0) {
       // Show any errors as appropriate
       GLchar *log = (GLchar *)malloc(logLen);
       glGetProgramInfoLog(*program, logLen, &logLen, log);
-      CardIOLog(@"Program Log: %s\n", log);
+      // CardIOLog(@"Program Log: %s\n", log);
       free(log);
     }
     return NO;
   }
   else {
-    CardIOLog(@"Program link OK");
+    // CardIOLog(@"Program link OK");
     return YES;
   }
 }
