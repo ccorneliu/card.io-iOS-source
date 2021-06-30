@@ -5,7 +5,7 @@
 
 #import "CardIOGPURenderer.h"
 #import "CardIOMacros.h"
-//#import "dmz.h"
+#import "dmz.h"
 #import <OpenGLES/ES2/glext.h>
 #import <OpenGLES/ES3/gl.h>
 

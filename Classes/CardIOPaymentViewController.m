@@ -15,7 +15,7 @@
 #import "CardIOView.h"
 #import "CardIOUtilities.h"
 
-//#import "warp.h"
+#import "warp.h"
 
 #import "CardIODetectionMode.h"
 

@@ -27,7 +27,7 @@
 #import "CardIOAnalytics.h"
 #import "CardIOLocalizer.h"
 #import "CardIOOrientation.h"
-//#import "dmz_constants.h"
+#import "dmz_constants.h"
 
 #define kStatusBarHeight  20
 #define kiOS7TableViewBorderColor 0.78f

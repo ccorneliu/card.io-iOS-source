@@ -2169,6 +2169,11 @@
 					};
 					92263D6F1B83ACBB003FE678 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = NECY522QXR;
+					};
+					A553B6E51BE32273006DF551 = {
+						DevelopmentTeam = NECY522QXR;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -2336,7 +2341,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "export PATH=/usr/local/bin:$PATH\n\nif [ -f .baler_envx ]; then\n  source .baler_env 2 > /dev/null\nelif which bale > /dev/null; then\n echo \"Using default bale\"\nelse\n  echo \"baler is missing, so skipping the baler step\"\n  exit 0;\nfi\n\necho \"Baling bundle with `which bale`\"\nbale assets/ Classes/ --overwrite-delay 0 -z -c CardIOBundle || (echo 'Failed to generate bundle via baler!' ; exit 1)";
+			shellScript = "export PATH=/usr/local/bin:$PATH\n\nif [ -f .baler_envx ]; then\n  source .baler_env 2 > /dev/null\nelif which bale > /dev/null; then\n echo \"Using default bale\"\nelse\n  echo \"baler is missing, so skipping the baler step\"\n  exit 0;\nfi\n\necho \"Baling bundle with `which bale`\"\nbale assets/ Classes/ --overwrite-delay 0 -z -c CardIOBundle || (echo 'Failed to generate bundle via baler!' ; exit 1)\n";
 		};
 		929AD77D1B8C771200F6D18E /* Get version from git tag */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2350,7 +2355,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -z \"$ICC_VERSION\" ]\nthen\nICC_VERSION=`git describe --match=iOS_[0-9]*\\.[0-9]* --tags --always --dirty | sed \"s/iOS_//\" | sed \"s/-.*//\"`\nfi\necho \"Using version: $ICC_VERSION\"\n\nsed s/icc-version-undefined/$ICC_VERSION/g <Classes/CardIOIccVersion.h.template >Classes/CardIOIccVersion.h";
+			shellScript = "if [ -z \"$ICC_VERSION\" ]\nthen\nICC_VERSION=`git describe --match=iOS_[0-9]*\\.[0-9]* --tags --always --dirty | sed \"s/iOS_//\" | sed \"s/-.*//\"`\nfi\necho \"Using version: $ICC_VERSION\"\n\nsed s/icc-version-undefined/$ICC_VERSION/g <Classes/CardIOIccVersion.h.template >Classes/CardIOIccVersion.h\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2531,7 +2536,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A50A54AD1BE2F7A800B669FB /* AdHoc.xcconfig */;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/opencv_simulator/include";
 				OTHER_CFLAGS = "";
+				PRELINK_LIBS = "$(SRCROOT)/opencv_simulator/lib/libopencv_core.a $(SRCROOT)/opencv_simulator/lib/libopencv_imgproc.a";
 			};
 			name = AdHoc;
 		};
@@ -2539,6 +2546,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A50A54AF1BE2F7A800B669FB /* CardIO_Static_Library_Debug.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					arm64,
+					armv7,
+					armv7s,
+					i386,
+					x86_64,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/opencv_simulator/include",
+					"$(SRCROOT)/dmz",
+				);
 			};
 			name = Debug;
 		};
@@ -2546,6 +2564,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A50A54B01BE2F7A800B669FB /* CardIO_Static_Library_Release.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					arm64,
+					armv7,
+					armv7s,
+					i386,
+					x86_64,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/opencv_simulator/include",
+					"$(SRCROOT)/dmz",
+				);
 			};
 			name = Release;
 		};
@@ -2553,6 +2582,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A50A54AE1BE2F7A800B669FB /* CardIO_Static_Library_AdHoc.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					arm64,
+					armv7,
+					armv7s,
+					i386,
+					x86_64,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/opencv_simulator/include",
+					"$(SRCROOT)/dmz",
+				);
+				PRELINK_LIBS = "$(SRCROOT)/opencv_simulator/lib/libopencv_core.a $(SRCROOT)/opencv_simulator/lib/libopencv_imgproc.a";
 			};
 			name = AdHoc;
 		};
@@ -2567,6 +2608,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A553B71C1BE32664006DF551 /* icc_Static_Library_Release.xcconfig */;
 			buildSettings = {
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(SRCROOT)/opencv_simulator/lib/libopencv_core.a",
+					"$(SRCROOT)/opencv_simulator/lib/libopencv_imgproc.a",
+				);
+				OTHER_LIBTOOLFLAGS = "$(inherited) $(SRCROOT)/opencv_simulator/lib/libopencv_core.a $(SRCROOT)/opencv_simulator/lib/libopencv_imgproc.a";
 			};
 			name = Release;
 		};
@@ -2574,6 +2621,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A553B71C1BE32664006DF551 /* icc_Static_Library_Release.xcconfig */;
 			buildSettings = {
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(SRCROOT)/opencv_simulator/lib/libopencv_core.a",
+					"$(SRCROOT)/opencv_simulator/lib/libopencv_imgproc.a",
+				);
+				OTHER_LIBTOOLFLAGS = "$(inherited) $(SRCROOT)/opencv_simulator/lib/libopencv_core.a $(SRCROOT)/opencv_simulator/lib/libopencv_imgproc.a";
 			};
 			name = AdHoc;
 		};
@@ -2581,6 +2634,19 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A50A54BE1BE2FEEC00B669FB /* CardIO_Framework_Debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				DEVELOPMENT_TEAM = NECY522QXR;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/opencv_simulator/include",
+					"$(SRCROOT)/dmz",
+				);
+				OTHER_LDFLAGS = (
+					"$(SRCROOT)/opencv_simulator/lib/libopencv_core.a",
+					"$(SRCROOT)/opencv_simulator/lib/libopencv_imgproc.a",
+				);
+				OTHER_LIBTOOLFLAGS = "$(SRCROOT)/opencv_simulator/lib/libopencv_core.a $(SRCROOT)/opencv_simulator/lib/libopencv_imgproc.a";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dolfn.CardIO;
 			};
 			name = Debug;
 		};
@@ -2588,6 +2654,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A50A54BF1BE2FEEC00B669FB /* CardIO_Framework_Release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				DEVELOPMENT_TEAM = NECY522QXR;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/opencv_simulator/include",
+					"$(SRCROOT)/dmz",
+				);
+				PRELINK_LIBS = "$(inherited) $(SRCROOT)/opencv_simulator/lib/libopencv_core.a $(SRCROOT)/opencv_simulator/lib/libopencv_imgproc.a";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dolfn.CardIO;
 			};
 			name = Release;
 		};
@@ -2595,6 +2670,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A50A54BD1BE2FEEC00B669FB /* CardIO_Framework_Adhoc.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				DEVELOPMENT_TEAM = NECY522QXR;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/opencv_simulator/include",
+					"$(SRCROOT)/dmz",
+				);
+				PRELINK_LIBS = "$(SRCROOT)/opencv_simulator/lib/libopencv_core.a $(SRCROOT)/opencv_simulator/lib/libopencv_imgproc.a";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dolfn.CardIO;
 			};
 			name = AdHoc;
 		};
@@ -2602,6 +2686,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A50A54B41BE2F7A800B669FB /* icc_Debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NECY522QXR;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/opencv_simulator/include";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dolfn.demo;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -2609,6 +2699,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A50A54B51BE2F7A800B669FB /* icc_Release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NECY522QXR;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/opencv_simulator/include";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(SRCROOT)/opencv_simulator/lib/libopencv_core.a",
+					"$(SRCROOT)/opencv_simulator/lib/libopencv_imgproc.a",
+				);
+				OTHER_LIBTOOLFLAGS = "$(inherited) $(SRCROOT)/opencv_simulator/lib/libopencv_core.a $(SRCROOT)/opencv_simulator/lib/libopencv_imgproc.a";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dolfn.demo;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
@@ -2616,6 +2718,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A50A54B31BE2F7A800B669FB /* icc_AdHoc.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NECY522QXR;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/opencv_simulator/include";
+				PRELINK_LIBS = "$(SRCROOT)/opencv_simulator/lib/libopencv_core.a $(SRCROOT)/opencv_simulator/lib/libopencv_imgproc.a";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dolfn.demo;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = AdHoc;
 		};
@@ -2623,7 +2732,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A50A54B21BE2F7A800B669FB /* Debug.xcconfig */;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/opencv_simulator/include";
 				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = (
+					"$(SRCROOT)/opencv_simulator/lib/libopencv_core.a",
+					"$(SRCROOT)/opencv_simulator/lib/libopencv_imgproc.a",
+				);
+				OTHER_LIBTOOLFLAGS = "$(SRCROOT)/opencv_simulator/lib/libopencv_core.a $(SRCROOT)/opencv_simulator/lib/libopencv_imgproc.a";
 			};
 			name = Debug;
 		};
@@ -2631,6 +2746,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A50A54B81BE2F7A800B669FB /* Release.xcconfig */;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/opencv_simulator/include";
 				OTHER_CFLAGS = "";
 			};
 			name = Release;

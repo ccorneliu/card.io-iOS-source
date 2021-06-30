@@ -220,7 +220,7 @@ def build(outdir=None, device_sdk=None, simulator_sdk=None, **kwargs):
                 header_files = glob.glob(os.path.join("CardIO_Public_API", "*.h"))
                 _copy(header_files, cardio_dir)
 
-                opencv_libraries = glob.glob(os.path.join("opencv_device/lib/", "*.a"))
+                opencv_libraries = glob.glob(os.path.join("opencv_simulator/lib/", "*.a"))
                 _copy(opencv_libraries, cardio_dir)
 
                 libfile = os.path.join(lipo_build_dirs["Release"], env.libname)

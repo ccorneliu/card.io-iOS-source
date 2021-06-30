@@ -21,7 +21,7 @@ PRODUCT_NAME = CardIO
 
 ALWAYS_SEARCH_USER_PATHS = NO
 
-HEADER_SEARCH_PATHS = $(SRCROOT)/opencv_device/include $(SRCROOT)/dmz
+HEADER_SEARCH_PATHS = $(SRCROOT)/opencv_simulator/include $(SRCROOT)/dmz
 
 LIBRARY_SEARCH_PATHS = $(inherited) "$(SRCROOT)/Classes"
 

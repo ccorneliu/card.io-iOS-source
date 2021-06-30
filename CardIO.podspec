@@ -21,15 +21,15 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'dmz-other' do |sp|
     sp.header_mappings_dir = 'dmz'
-    sp.public_header_files = 'dmz/**/*.{h,hpp}', 'dmz/Eigen/*'
-    sp.source_files = 'dmz/**/**/*.{m,cpp,mm}'
+    # sp.public_header_files = 'dmz/**/*.{h,hpp}', 'dmz/Eigen/*'
+    sp.source_files = 'dmz/**/**/*.{h,hpp,m,cpp,mm}', 'dmz/Eigen/**/*'
     # sp.source_files = 'dmz/mz_ios.mm', 'dmz/dmz.h'
   end
 
-  spec.subspec 'opencv_device' do |sp|
-    sp.header_mappings_dir = 'opencv_device'
-    sp.public_header_files = 'opencv_device/**/*.{h,hpp}',
-    sp.source_files = 'opencv_device/**/*.{m,cpp,mm}'
+  spec.subspec 'opencv_simulator' do |sp|
+    sp.header_mappings_dir = 'opencv_simulator'
+    sp.public_header_files = 'opencv_simulator/**/*.{h,hpp}',
+    sp.source_files = 'opencv_simulator/**/*.{m,cpp,mm}'
     # sp.source_files = 'dmz/mz_ios.mm', 'dmz/dmz.h'
   end
 end
